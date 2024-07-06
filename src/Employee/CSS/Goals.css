@@ -1,0 +1,36 @@
+.goal-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.goal-card {
+    width: 300px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+    background-color: #fff;
+}
+
+.goal-card.accepted {
+    box-shadow: 0 4px 8px green;
+}
+
+.goal-card.progress {
+    box-shadow: 0 4px 8px orange;
+}
+
+.goal-card.rejected {
+    box-shadow: 0 4px 8px red;
+}
+
+.error-message-container {
+    text-align: center;
+}
+
+.error-message {
+    color: red;
+    font-size: 18px;
+}

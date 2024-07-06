@@ -1,0 +1,55 @@
+/* Adminlogin.css */
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    border: 1px solid #e8e8e8;
+    background-color: #ffffff;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+.form-container h1 {
+    text-align: center;
+    font-weight: 500;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(28, 157, 243);
+
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container form .ant-form-item {
+    margin-bottom: 16px;
+}
+
+.form-container form .ant-form-item-label {
+    text-align: left;
+}
+
+.form-container form .ant-form-item-control-input {
+    width: 100%;
+}
+
+.form-container form .ant-btn {
+    width: 100%;
+}
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+    .form-container {
+        max-width: 90%;
+    }
+}

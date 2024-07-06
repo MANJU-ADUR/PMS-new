@@ -1,0 +1,23 @@
+.emp_navbar .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100vw;
+    background-color: transparent;
+    height: 10vh;
+    padding: 0 100px;
+    box-shadow: 0 0 10px black;
+}
+
+.emp_navbar .nav nav a {
+    color: black;
+    margin: 0 15px;
+    padding: 5px 5px;
+    background-color: transparent;
+}
+
+.emp_navbar .nav nav a:hover {
+    color: black;
+    margin: 0 15px;
+    background-color: transparent;
+}

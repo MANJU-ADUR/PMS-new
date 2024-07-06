@@ -1,0 +1,18 @@
+.creategoal {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .creategoal {
+        padding: 10px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .creategoal {
+        max-width: 90%;
+    }
+}
