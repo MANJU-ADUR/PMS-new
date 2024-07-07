@@ -45,10 +45,10 @@ public class SentGoalService {
 			sentGoals.setEmployee(dbEmp);
 			sentGoals.setManager(dbMgr);
 			{
-				long id = sentGoals.getGoal_id();
-				Optional<Goal> goal = goalDao.findbyid(id);
-				Goal dbgoal = goal.get();
-				goalService.update(dbgoal);
+//				long id = sentGoals.getGoal_id();
+//				Optional<Goal> goal = goalDao.findbyid(id);
+//				Goal dbgoal = goal.get();
+//				goalService.update(dbgoal);
 
 			}
 			structure.setData(sentGoalsDao.save(sentGoals));
@@ -59,17 +59,22 @@ public class SentGoalService {
 		return null;
 	}
 
-	
 	public ResponseEntity<ResponseStructure<SentGoal>> update(SentGoal sentGoal) {
 		ResponseStructure<SentGoal> structure = new ResponseStructure<>();
 		Optional<SentGoal> recGoal = sentGoalsDao.byid(sentGoal.getId());
 		if (recGoal.isPresent()) {
 			SentGoal dbGoal = recGoal.get();
+			dbGoal.setGoal_id(sentGoal.getGoal_id());
 			dbGoal.setDescription(sentGoal.getDescription());
 			dbGoal.setEnddate(sentGoal.getEnddate());
 			dbGoal.setStartdate(sentGoal.getStartdate());
 			dbGoal.setTitle(sentGoal.getTitle());
-			dbGoal.setStatus("HR Approved");
+			dbGoal.setStatus(sentGoal.getStatus());
+			dbGoal.setManager_feedback(sentGoal.getManager_feedback());
+			dbGoal.setManager_ratings(sentGoal.getManager_ratings());
+			dbGoal.setHr_feedback(sentGoal.getHr_feedback());
+			dbGoal.setHr_ratings(sentGoal.getHr_ratings());
+			
 			sentGoalsDao.save(sentGoal);
 			structure.setData(dbGoal);
 			structure.setMessage("Updated");
@@ -78,7 +83,7 @@ public class SentGoalService {
 		}
 		return null;
 	}
-	
+
 	public ResponseEntity<ResponseStructure<List<SentGoal>>> bymanagerid(long id) {
 		ResponseStructure<List<SentGoal>> structure = new ResponseStructure<>();
 		Optional<Manager> recManager = managerDao.byid(id);
@@ -91,6 +96,19 @@ public class SentGoalService {
 				return new ResponseEntity<ResponseStructure<List<SentGoal>>>(structure, HttpStatus.OK);
 			}
 			return null;
+		}
+		return null;
+	}
+
+	public ResponseEntity<ResponseStructure<SentGoal>> findsentgoalbygoal_id(Long id) {
+		ResponseStructure<SentGoal> structure = new ResponseStructure<>();
+		Optional<SentGoal> recGoal = sentGoalsDao.findsent_goal_by_goal_id(id);
+
+		if (recGoal.isPresent()) {
+			structure.setData(recGoal.get());
+			structure.setMessage("Goal Found");
+			structure.setStatuscode(HttpStatus.OK.value());
+			return new ResponseEntity<ResponseStructure<SentGoal>>(structure, HttpStatus.OK);
 		}
 		return null;
 	}

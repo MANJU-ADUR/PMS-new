@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.pms.project.dto.ResponseStructure;
 import com.pms.project.entity.Employee;
+import com.pms.project.entity.Goal;
 import com.pms.project.service.EmployeeService;
 
 @RestController
@@ -38,5 +39,7 @@ public class EmployeeController {
 	public ResponseEntity<ResponseStructure<Employee>> byid(@PathVariable long id) {
 		return employeeService.findbyid(id);
 	}
+	
+	
 
 }

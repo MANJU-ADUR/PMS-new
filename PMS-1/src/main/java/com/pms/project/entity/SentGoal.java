@@ -8,6 +8,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
 import lombok.Data;
 
@@ -20,7 +21,8 @@ public class SentGoal {
 	private long id;
 	@Column(nullable = false)
 	private String title;
-	@Column(nullable = false)
+	@Lob // Use Lob annotation for large objects
+	@Column(nullable = false, length = 5000) // Set length explicitly for CLOB
 	private String description;
 	@Column(nullable = false)
 	private String startdate;
@@ -32,9 +34,16 @@ public class SentGoal {
 	private long goal_id;
 
 	private int manager_ratings;
+	
 
+	@Lob
+	@Column( length = 500)
 	private String manager_feedback;
-
+	private int hr_ratings;
+	
+	@Lob
+	@Column( length = 500)
+	private String hr_feedback;
 
 	@ManyToOne
 	@JsonIgnore

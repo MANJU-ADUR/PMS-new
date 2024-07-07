@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -50,5 +51,10 @@ public class GoalController {
 	@GetMapping("find-emp/{id}")
 	public ResponseEntity<ResponseStructure<Employee>> findemp_by_goal_id(@PathVariable long id) {
 		return goalService.findempidbygoal(id);
+	}
+
+	@PutMapping
+	public ResponseEntity<ResponseStructure<Goal>> update(@RequestBody Goal goal) {
+		return goalService.update(goal);
 	}
 }

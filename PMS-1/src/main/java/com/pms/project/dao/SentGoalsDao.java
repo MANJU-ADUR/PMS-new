@@ -27,4 +27,8 @@ public class SentGoalsDao {
 		return sentGoalRepository.findById(id);
 	}
 
+	public Optional<SentGoal> findsent_goal_by_goal_id(Long id) {
+		return sentGoalRepository.findByGoal_id(id);
+	}
+
 }

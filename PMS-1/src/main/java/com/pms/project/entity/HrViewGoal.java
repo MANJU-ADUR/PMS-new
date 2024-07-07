@@ -8,6 +8,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
 import lombok.Data;
 
@@ -21,7 +22,8 @@ public class HrViewGoal {
 
 	@Column(nullable = false)
 	private String title;
-	@Column(nullable = false)
+	@Lob // Use Lob annotation for large objects
+	@Column(nullable = false, length = 5000) // Set length explicitly for CLOB
 	private String description;
 	@Column(nullable = false)
 	private String startdate;
@@ -31,15 +33,19 @@ public class HrViewGoal {
 	private String status;
 	@Column(nullable = false, unique = true)
 	private long goal_id;
-
+	@Column(nullable = false, unique = true)
 	private long mangerGoalid;
 
 	private int manager_ratings;
-	
+
 	private int hr_ratings;
 
+	@Lob // Use Lob annotation for large objects
+	@Column(length = 500)
 	private String manager_feedback;
 
+	@Lob // Use Lob annotation for large objects
+	@Column(length = 500)
 	private String hr_feedback;
 
 	@ManyToOne
@@ -51,7 +57,7 @@ public class HrViewGoal {
 	@JsonIgnore
 	@JoinColumn(name = "manager_id")
 	private Manager manager;
-	
+
 	@ManyToOne
 	@JsonIgnore
 	@JoinColumn(name = "hr_id")

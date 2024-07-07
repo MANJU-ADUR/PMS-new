@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -34,5 +35,17 @@ public class SentGoalController {
 	public ResponseEntity<ResponseStructure<List<SentGoal>>> findsentgoals_by_manager_id(@PathVariable long id) {
 		return sentGoalService.bymanagerid(id);
 	}
+	
+	@PutMapping("/update")
+	public ResponseEntity<ResponseStructure<SentGoal>> update(@RequestBody SentGoal sentGoal) {
+		return sentGoalService.update(sentGoal);
+	}
+	
+	@GetMapping("find/sentgoal/{id}")
+	public ResponseEntity<ResponseStructure<SentGoal>> findsentgoalby_goal_id(@PathVariable Long id) {
+		return sentGoalService.findsentgoalbygoal_id(id);
+	}
+	
+	
 
 }

@@ -1,5 +1,7 @@
 package com.pms.project.controller;
 
+import java.util.List;
+
 import javax.imageio.spi.RegisterableService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,10 +31,15 @@ public class HrController {
 		return hrService.save(hr);
 	}
 
-	@PostMapping
+	@PostMapping("find-by-email-password")
 	public ResponseEntity<ResponseStructure<Hr>> findByEmailAndPassword(@RequestParam String email,
 			@RequestParam String password) {
 		return hrService.findByEmailAndPassword(email, password);
+	}
+	
+	@GetMapping("hrs")
+	public ResponseEntity<ResponseStructure<List<Hr>>> findall() {
+		return hrService.findall();
 	}
 
 }

@@ -1,5 +1,6 @@
 package com.pms.project.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,4 +38,15 @@ public class HrService {
 		return null;
 	}
 
+	public ResponseEntity<ResponseStructure<List<Hr>>> findall() {
+		ResponseStructure<List<Hr>> structure = new ResponseStructure<>();
+		List<Hr> hrs = hrDao.findall();
+		if (hrs.size() > 0) {
+			structure.setData(hrs);
+			structure.setMessage("Hr's");
+			structure.setStatuscode(HttpStatus.OK.value());
+			return new ResponseEntity<ResponseStructure<List<Hr>>>(structure, HttpStatus.OK);
+		}
+		return null;
+	}
 }

@@ -80,26 +80,13 @@ public class GoalService {
 			dbGoal.setEnddate(goal.getEnddate());
 			dbGoal.setStartdate(goal.getStartdate());
 			dbGoal.setTitle(goal.getTitle());
-			dbGoal.setStatus("Pending");
-			goalDao.save(dbGoal);
-			structure.setData(dbGoal);
-			structure.setMessage("Updated");
-			structure.setStatuscode(HttpStatus.OK.value());
-			return new ResponseEntity<ResponseStructure<Goal>>(structure, HttpStatus.OK);
-		}
-		return null;
-	}
-	
-	public ResponseEntity<ResponseStructure<Goal>> update1(Goal goal) {
-		ResponseStructure<Goal> structure = new ResponseStructure<>();
-		Optional<Goal> recGoal = goalDao.findbyid(goal.getId());
-		if (recGoal.isPresent()) {
-			Goal dbGoal = recGoal.get();
-			dbGoal.setDescription(goal.getDescription());
-			dbGoal.setEnddate(goal.getEnddate());
-			dbGoal.setStartdate(goal.getStartdate());
-			dbGoal.setTitle(goal.getTitle());
-			dbGoal.setStatus("HR Approved");
+			dbGoal.setStatus(goal.getStatus());
+			dbGoal.setManager_feedback(goal.getManager_feedback());
+			dbGoal.setManager_ratings(goal.getManager_ratings());
+			dbGoal.setHr_feedback(goal.getHr_feedback());
+			dbGoal.setHr_ratings(goal.getHr_ratings());
+			dbGoal.setManager_id(goal.getManager_id());
+			dbGoal.setHr_id(goal.getHr_id());
 			goalDao.save(dbGoal);
 			structure.setData(dbGoal);
 			structure.setMessage("Updated");
@@ -109,7 +96,24 @@ public class GoalService {
 		return null;
 	}
 
-	
+	public ResponseEntity<ResponseStructure<Goal>> update1(Goal goal) {
+		ResponseStructure<Goal> structure = new ResponseStructure<>();
+		Optional<Goal> recGoal = goalDao.findbyid(goal.getId());
+		if (recGoal.isPresent()) {
+			Goal dbGoal = recGoal.get();
+			dbGoal.setDescription(goal.getDescription());
+			dbGoal.setEnddate(goal.getEnddate());
+			dbGoal.setStartdate(goal.getStartdate());
+			dbGoal.setTitle(goal.getTitle());
+			dbGoal.setStatus("Manager Approved");
+			goalDao.save(dbGoal);
+			structure.setData(dbGoal);
+			structure.setMessage("Updated");
+			structure.setStatuscode(HttpStatus.OK.value());
+			return new ResponseEntity<ResponseStructure<Goal>>(structure, HttpStatus.OK);
+		}
+		return null;
+	}
 
 	public ResponseEntity<ResponseStructure<Goal>> bygoalid(long id) {
 		ResponseStructure<Goal> structure = new ResponseStructure<>();
