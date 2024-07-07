@@ -27,7 +27,8 @@ const Login = () => {
                 message.error('Please enter credentials');
             }
         } catch (error) {
-            console.error('Error during login:', error.message);
+            console.log(error);
+            console.log('Error during login:', error);
             message.error('Invalid Crendentials');
         }
     };

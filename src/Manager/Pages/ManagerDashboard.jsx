@@ -38,7 +38,6 @@ const ManagerDashboard = () => {
     return (
         <div className="managerdash">
             <ManagerNavbar />
-            lsakjdjahklhkldhlkvcbj
             {loading ? (
                 <p>Loading...</p>
             ) : error ? (

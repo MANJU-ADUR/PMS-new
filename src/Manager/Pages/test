@@ -101,12 +101,15 @@ const GoalDetail = () => {
         startdate: goal.startdate,
         enddate: goal.enddate,
         status: 'manager approved',
-        goal_id: goal.id,
+        goal_id: goal.goal_id,
         manager_feedback: managerFeedback,
         manager_ratings: rating,
         mangerGoalid: goal.id,
+        emp_id: employee.id,
+        mgr_id: goal.managerId,
+        hr_id: hrId
       };
-      console.log("data", dataToSend);
+
       // Send data to HR endpoint
       console.log(employee.id, userdetails.id, hrId);
       const hrGoalResponse = await axios.post(`http://localhost:7410/hrgoals/save/${employee.id}/${userdetails.id}/${hrId}`, dataToSend);
@@ -116,7 +119,6 @@ const GoalDetail = () => {
       console.error('Error forwarding goal to HR:', error);
       message.error('Failed to forward goal to HR. Please try again later.');
     }
-    console.log(userdetails.id);
     const updatedata = {
       id: goal.goal_id,
       title: goal.title,
@@ -126,7 +128,7 @@ const GoalDetail = () => {
       status: "managerA",
       manager_feedback: managerFeedback,
       manager_ratings: rating,
-      manager_id: userdetails.id
+
     }
     axios.put(`http://localhost:7410/goals`, updatedata)
       .then((res) => {

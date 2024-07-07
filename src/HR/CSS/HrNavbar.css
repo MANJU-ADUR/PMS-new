@@ -1,0 +1,52 @@
+/* Default styles */
+.hr_navbar {
+    background-color: #f0f0f0;
+    padding: 10px;
+    align-items: center;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.options {
+    margin-right: 10px;
+}
+
+.name {
+    flex-grow: 1;
+    /* Grow to fill remaining space */
+    text-align: center;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+}
+
+.user p {
+    margin-left: 5px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .nav {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .options {
+        margin-bottom: 10px;
+    }
+
+    .name {
+        text-align: center;
+    }
+
+    .user {
+        justify-content: center;
+        margin-top: 10px;
+    }
+}

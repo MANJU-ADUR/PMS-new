@@ -1,0 +1,77 @@
+.emp-goals-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.emp-goals-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.goals-list {
+    display: grid;
+    gap: 20px;
+}
+
+.goal-card {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.goal-card h3 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.goal-card p {
+    margin-bottom: 5px;
+}
+
+.goal-card strong {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.goal-card .ant-rate {
+    margin-top: 5px;
+}
+
+.loading-text,
+.error-text,
+.no-goals-text {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    .emp-goals-container {
+        padding: 10px;
+    }
+
+    .goal-card {
+        padding: 10px;
+    }
+
+    .goals-list {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .emp-goals-container {
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    .goal-card {
+        padding: 8px;
+    }
+}

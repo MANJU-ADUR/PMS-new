@@ -12,7 +12,7 @@ const CreateGoal = () => {
     const [description, setDescription] = useState('');
     const [startdate, setStartDate] = useState(null);
     const [enddate, setEndDate] = useState(null);
-    const [status, setStatus] = useState('Created'); // Default status
+    const [status, setStatus] = useState('Draft'); // Default status
 
     const employee = JSON.parse(localStorage.getItem("User"));
     console.log(employee.id);

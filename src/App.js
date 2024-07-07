@@ -16,7 +16,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/employee-dash/*" element={<EmployeeDashboard />} />
           <Route path="/manager-dash/*" element={<ManagerDashboard />} />
-          <Route path="/hr-dash" element={<HrDashboard />} />
+          <Route path="/hr-dash/*" element={<HrDashboard />} />
         </Routes>
       </BrowserRouter>
     </div>

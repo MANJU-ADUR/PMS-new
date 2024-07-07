@@ -95,7 +95,7 @@ const Goals = () => {
             description: goalToSend.description,
             startdate: goalToSend.startdate,
             enddate: goalToSend.enddate,
-            status: "pending"
+            status: "Pending"
         };
 
         try {
@@ -117,6 +117,22 @@ const Goals = () => {
             console.error('Error sending goal:', error);
             // Handle error response as needed
         }
+
+        const updatedata = {
+            id: goalToSend.id,
+            title: goalToSend.title,
+            description: goalToSend.description,
+            startdate: goalToSend.startdate,
+            enddate: goalToSend.enddate,
+            status: "PendingM"
+        }
+        axios.put(`http://localhost:7410/goals`, updatedata)
+            .then((res) => {
+                console.log(res);
+            })
+            .catch((err) => {
+                console.log(err);
+            })
     };
 
     return (
@@ -143,7 +159,7 @@ const Goals = () => {
                                             <select
                                                 value={selectedManagers[goal.id] ? selectedManagers[goal.id].id : ''}
                                                 onChange={(e) => handleManagerSelect(e, goal.id)}
-                                                disabled={goal.status === "pending"} // Disable if already sent
+                                                disabled={goal.status === "pendingm"} // Disable if already sent
                                             >
                                                 <option value="">Select Manager</option>
                                                 {managers.map(manager => (

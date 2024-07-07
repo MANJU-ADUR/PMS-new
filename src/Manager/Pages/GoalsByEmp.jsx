@@ -61,7 +61,7 @@ const GoalsByEmp = () => {
                                 {/* Uncomment and modify as needed */}
                                 {/* <p><strong>Description:</strong> {goal.description}</p> */}
                                 <p><strong>Start Date:</strong> {goal.startdate}</p>
-                                <p><strong>End Date:</strong> {goal.id}</p>
+                                <p><strong>End Date:</strong> {goal.enddate}</p>
                                 {/* <p><strong>Status:</strong> {goal.status}</p> */}
                                 {/* Display other relevant fields as needed */}
                                 <button onClick={() => { displaygoal(goal.goal_id) }} >
